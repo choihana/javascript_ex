@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+            function dark_mode() {
+                document.querySelector("body").style.backgroundColor="rgb(47, 52, 55)"; 
+                document.querySelector("body").style.color="white";
+            }
+            function light_mode() {
+                document.querySelector("body").style.backgroundColor="white"; 
+                document.querySelector("body").style.color="black";
+            }
+        </script>
         <style>
             h1{
-                border: 5px solid blue;
+                border: 5px solid yellow;
                 background-color: green;
             }
-
+            button{
+                background-color: #D36EEC;
+                border: 1px solid #B9062F;
+            }
         </style>
-        <Title>10/13 javascript 실습</Title>
+        
     </head>
     <body>
-        <h1>HANA</h1>
-         <ol>
-             <li>html</li>
-             <li>css</li>
-             <li>js</li>
-         </ol>
+        <h1>HANA's JS</h1>
+        <button onclick=light_mode()>day 🌞</button>
+        <button onclick=dark_mode()>nigth 🌛</button>
+        
+       
+
     </body>   
 </html>
   
