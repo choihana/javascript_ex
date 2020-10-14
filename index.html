@@ -16,18 +16,29 @@
             function mode_change(){
                 var mode = document.querySelector('#mode').value;
                 var bodyTag = document.querySelector('body');
+                var as = document.querySelectorAll('li');
                 if(mode === 'day'){
                     console.log('day click');
                     bodyTag.style.backgroundColor='black';
                     bodyTag.style.color='white';
                     document.querySelector('#mode').value = 'night';
+                    
+                    var i =0 ;
+                    while(i < as.length){
+                        as[i].style.color='red';
+                        i += 1;
+                    }
                 } else {
                     console.log('night click')
                     bodyTag.style.backgroundColor='white';
                     bodyTag.style.color='black';
                     document.querySelector('#mode').value = 'day';
+                    var i =0 ;
+                    while(i < as.length){
+                        as[i].style.color='blue';
+                        i += 1;
+                    }
                 }
-
             }
             /*
             1. 버튼을 만든다. 
@@ -67,7 +78,16 @@
     </head>
     <body>
         <h1>HANA's JS</h1>
-        <input type='button' id='mode' onclick=mode_change() value='day'>
+        <input type='button' id='mode' onclick='mode_change()' value='day'>
+        <script>
+            var food = ['hamburg','pizza','coffee','cake'];
+            i =0 ;
+            while(i < food.length){
+                document.write('<li>'+food[i]+'</li>')
+                i += 1
+            }
+
+        </script>
     </body>   
 </html>
   
