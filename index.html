@@ -2,42 +2,28 @@
 <html>
     <head>
         <script>
-            function dark_mode() {
-                document.querySelector("body").style.backgroundColor="rgb(47, 52, 55)"; 
-                document.querySelector("body").style.color="white";
-            }
-
-            // day click
-            function light_mode() {
-                document.querySelector("body").style.backgroundColor="white"; 
-                document.querySelector("body").style.color="black";
+            function screen_mode(cfont,cback,mode,cli){
                 
-            }
-            function mode_change(){
-                var mode = document.querySelector('#mode').value;
                 var bodyTag = document.querySelector('body');
                 var as = document.querySelectorAll('li');
+
+                bodyTag.style.backgroundColor=cback;
+                bodyTag.style.color=cfont;
+                document.querySelector('#mode').value = mode;
+                
+                var i =0 ;
+                    while(i < as.length){
+                        as[i].style.color=cli;
+                        i += 1;
+                    }
+            }
+
+            function mode_change(){
+                var mode = document.querySelector('#mode').value;
                 if(mode === 'day'){
-                    console.log('day click');
-                    bodyTag.style.backgroundColor='black';
-                    bodyTag.style.color='white';
-                    document.querySelector('#mode').value = 'night';
-                    
-                    var i =0 ;
-                    while(i < as.length){
-                        as[i].style.color='red';
-                        i += 1;
-                    }
+                    screen_mode('white','black','night','red');
                 } else {
-                    console.log('night click')
-                    bodyTag.style.backgroundColor='white';
-                    bodyTag.style.color='black';
-                    document.querySelector('#mode').value = 'day';
-                    var i =0 ;
-                    while(i < as.length){
-                        as[i].style.color='blue';
-                        i += 1;
-                    }
+                    screen_mode('black','white','day','blue');
                 }
             }
             /*
