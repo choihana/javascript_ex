@@ -6,10 +6,52 @@
                 document.querySelector("body").style.backgroundColor="rgb(47, 52, 55)"; 
                 document.querySelector("body").style.color="white";
             }
+
+            // day click
             function light_mode() {
                 document.querySelector("body").style.backgroundColor="white"; 
                 document.querySelector("body").style.color="black";
+                
             }
+            function mode_change(){
+                var mode = document.querySelector('#mode').value;
+                var bodyTag = document.querySelector('body');
+                if(mode === 'day'){
+                    console.log('day click');
+                    bodyTag.style.backgroundColor='black';
+                    bodyTag.style.color='white';
+                    document.querySelector('#mode').value = 'night';
+                } else {
+                    console.log('night click')
+                    bodyTag.style.backgroundColor='white';
+                    bodyTag.style.color='black';
+                    document.querySelector('#mode').value = 'day';
+                }
+
+            }
+            /*
+            1. 버튼을 만든다. 
+            2. onclick에 코드를 작성한다. 
+            3. 만약 버튼의 레이블이 night라면 
+                var bodyTag = document.querySelector('body');
+                bodyTag.style.backgroundColor='black';
+                bodyTag.style.color='white';
+                document.querySelector('#a1').style.color='white';
+                document.querySelector('#a2').style.color='white';
+                document.querySelector('#a3').style.color='white';
+                버튼의 value 값을 day로 변경한다. 
+            아니라면 
+                var bodyTag = document.querySelector('body');
+                bodyTag.style.backgroundColor='white';
+                bodyTag.style.color='black';
+                document.querySelector('#a1').style.color='black';
+                document.querySelector('#a2').style.color='black';
+                document.querySelector('#a3').style.color='black';
+                버튼의 value 값을 night로 변경한다. 
+            
+            */
+            
+            
         </script>
         <style>
             h1{
@@ -25,11 +67,10 @@
     </head>
     <body>
         <h1>HANA's JS</h1>
-        <button onclick=light_mode()>day 🌞</button>
-        <button onclick=dark_mode()>nigth 🌛</button>
+        <input type='button' id='mode' onclick=mode_change() value='day'>
+   
         
        
-
     </body>   
 </html>
   
